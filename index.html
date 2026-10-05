@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Assinatura IMendes</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: ferramenta em duas colunas — formulário à esquerda, prévia do e-mail à direita; passos de instalação abaixo */
+:root{
+  --bg:#f3f3ef; --surface:#ffffff; --fg:#13162c; --muted:#4b5563; --line:#dcdcd3;
+  --accent:#eabd32; --accent-ink:#13162c; --navy:#13162c; --field:#ffffff; --focus:#c69f3b;
+  --ok:#1f7a4d; --warn:#a15c07;
+  --display:"Poppins",Arial,sans-serif; --body:"Inter",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d0f1f; --surface:#161a33; --fg:#eef0f6; --muted:#a3a9bd; --line:#2a3050;
+  --accent:#eabd32; --accent-ink:#13162c; --navy:#13162c; --field:#0f1226; --focus:#eabd32;
+  --ok:#5fcf98; --warn:#f0b35a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d0f1f; --surface:#161a33; --fg:#eef0f6; --muted:#a3a9bd; --line:#2a3050;
+  --accent:#eabd32; --accent-ink:#13162c; --navy:#13162c; --field:#0f1226; --focus:#eabd32;
+  --ok:#5fcf98; --warn:#f0b35a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:32px 56px;display:grid;gap:28px}
+header{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.rings{width:44px;height:44px;flex:none}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin:0;text-wrap:balance}
+.lede{margin:4px 0 0;color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
+h2{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0 0 4px}
+.hint{color:var(--muted);font-size:.85rem;margin:0}
+form{display:grid;gap:14px;margin-top:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:5px;font-size:.8rem;font-weight:600;letter-spacing:.02em;color:var(--muted)}
+label span.req{color:var(--focus)}
+input{font:inherit;font-size:.95rem;color:var(--fg);background:var(--field);border:1px solid var(--line);border-radius:9px;padding:10px 12px;width:100%;min-width:0}
+input:focus{outline:2px solid var(--focus);outline-offset:1px;border-color:transparent}
+input[aria-invalid="true"]{border-color:var(--warn)}
+.field-msg{font-weight:500;font-size:.78rem;color:var(--warn);min-height:0}
+.example{display:flex;gap:8px;align-items:center;font-size:.8rem;color:var(--muted);background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:8px;padding:8px 10px}
+.example button{margin-left:auto}
+.preview-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mail{margin-top:14px;background:#ffffff;color:#222;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.mail-top{background:#f6f7f9;border-bottom:1px solid #e5e7eb;padding:10px 14px;font-size:.8rem;color:#5f6368;display:grid;gap:2px}
+.mail-body{padding:18px 16px 22px;font-family:Arial,sans-serif;font-size:14px;color:#222;overflow-x:auto}
+.mail-body p{margin:0 0 14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);padding:10px 16px;font-weight:600}
+button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-family:var(--display);font-weight:700}
+button.primary:hover{filter:brightness(1.05)}
+button.small{padding:4px 10px;font-size:.78rem;border-radius:7px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.status{font-size:.85rem;font-weight:600;color:var(--ok)}
+.status.warn{color:var(--warn)}
+textarea{width:100%;min-height:140px;margin-top:12px;font:12px/1.4 ui-monospace,Consolas,monospace;color:var(--fg);background:var(--field);border:1px solid var(--line);border-radius:9px;padding:10px}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:860px){ol.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){ol.steps{grid-template-columns:1fr}}
+ol.steps li{counter-increment:s;display:grid;gap:6px;align-content:start;min-width:0}
+ol.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#eabd32;font-size:.9rem}
+ol.steps b{font-weight:600}
+ol.steps p{margin:0;color:var(--muted);font-size:.88rem}
+kbd{font:600 .78rem var(--body);background:color-mix(in srgb,var(--fg) 8%,transparent);border-radius:5px;padding:1px 6px;color:var(--fg)}
+.tips{margin:18px 0 0;padding:0 0 0 18px;color:var(--muted);font-size:.85rem;display:grid;gap:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="rings" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#eabd32" stroke-width="2"/>
+      <circle cx="22" cy="22" r="13.5" fill="none" stroke="#eabd32" stroke-width="2" opacity=".7"/>
+      <circle cx="22" cy="22" r="7" fill="#eabd32"/>
+    </svg>
+    <div>
+      <h1>Gerador de assinatura IMendes</h1>
+      <p class="lede">Preencha seus dados, confira a prévia e copie. Depois é só colar no Gmail. Quando mudar de cargo ou telefone, volte aqui e gere de novo.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="t-dados">
+      <h2 id="t-dados">Seus dados</h2>
+      <p class="hint">Campos com <span style="color:var(--focus)">*</span> são obrigatórios. Telefones aceitam qualquer formato.</p>
+      <div class="example" id="exampleNote" hidden>
+        <span>Os dados abaixo são um exemplo.</span>
+        <button type="button" class="small" id="clearBtn">Limpar campos</button>
+      </div>
+      <form id="f" novalidate>
+        <label for="nome">Nome completo <span class="req">*</span>
+          <input id="nome" name="nome" autocomplete="name" placeholder="Ex.: Ana Souza">
+        </label>
+        <label for="cargo">Cargo <span class="req">*</span>
+          <input id="cargo" name="cargo" autocomplete="organization-title" placeholder="Ex.: Analista de Marketing">
+        </label>
+        <label for="email">E-mail corporativo <span class="req">*</span>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="nome@imendes.com.br">
+          <span class="field-msg" id="emailMsg"></span>
+        </label>
+        <div class="row">
+          <label for="telefone">Telefone
+            <input id="telefone" name="telefone" inputmode="tel" placeholder="(11) 3333-4444">
+          </label>
+          <label for="whatsapp">WhatsApp
+            <input id="whatsapp" name="whatsapp" inputmode="tel" placeholder="(11) 99999-8888">
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="t-previa">
+      <div class="preview-head">
+        <h2 id="t-previa">Prévia no e-mail</h2>
+        <span class="hint">É assim que o destinatário vai ver.</span>
+      </div>
+      <div class="mail">
+        <div class="mail-top"><span><b>Para:</b> cliente@empresa.com.br</span><span><b>Assunto:</b> Proposta comercial</span></div>
+        <div class="mail-body">
+          <p>Olá, tudo bem?<br>Segue em anexo a proposta conforme combinamos.</p>
+          <div id="sig"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary" id="copyBtn">Copiar assinatura</button>
+        <button type="button" id="codeBtn">Copiar código HTML</button>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+      <textarea id="codeBox" readonly hidden aria-label="Código HTML da assinatura"></textarea>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="t-gmail">
+    <h2 id="t-gmail">Como instalar no Gmail</h2>
+    <p class="hint">Faça no computador, pelo navegador. Leva menos de um minuto.</p>
+    <ol class="steps">
+      <li><b>Copie a assinatura</b><p>Clique em <kbd>Copiar assinatura</kbd> aqui nesta página.</p></li>
+      <li><b>Abra as configurações</b><p>No Gmail, clique na engrenagem e depois em <kbd>Ver todas as configurações</kbd>. Fique na aba <b>Geral</b>.</p></li>
+      <li><b>Cole no campo Assinatura</b><p>Role até <b>Assinatura</b>, clique em <kbd>Criar nova</kbd>, dê o nome “IMendes” e cole com <kbd>Ctrl</kbd>+<kbd>V</kbd> (no Mac, <kbd>Cmd</kbd>+<kbd>V</kbd>).</p></li>
+      <li><b>Defina como padrão e salve</b><p>Em <b>Padrões de assinatura</b>, escolha “IMendes” para novos e-mails e respostas. Role até o fim e clique em <kbd>Salvar alterações</kbd>.</p></li>
+    </ol>
+    <ul class="tips">
+      <li>Se já existir uma assinatura antiga, apague-a antes de colar a nova.</li>
+      <li>Para atualizar depois, repita os passos: gere de novo aqui, apague a antiga no Gmail e cole a nova.</li>
+      <li>Se o botão de copiar não funcionar no seu navegador, selecione a assinatura na prévia com o mouse e copie com <kbd>Ctrl</kbd>+<kbd>C</kbd>.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+/* ===== CONFIGURAÇÃO DA EMPRESA (só o marketing altera) ===== */
+// Imagens hospedadas no Drive: Design System IMendes > Assinatura de e-mail (pasta pública)
+const DRIVE = id => id ? `https://lh3.googleusercontent.com/d/${id}` : "";
+const EMPRESA = {
+  logoUrl: DRIVE("1ANev_aTtiIA_zz7K4qxu7BTAEgGttgzX"), // logo-cor do Design System V_02, PNG 300px
+  logoLargura: 150,                 // largura exibida em px (arquivo em 2x)
+  site: "https://www.imendes.com.br",
+  siteTexto: "imendes.com.br",
+  instagram: "https://www.instagram.com/grupoimendes/",
+  linkedin: "https://www.linkedin.com/company/imendes/"
+};
+const ICONES = {                    // PNG 60×60, exibidos em 18px
+  telefone:  DRIVE("1NG5tUPuRHPSV9dZH-BbHaxhQEukc0ToR"),
+  whatsapp:  DRIVE("1blKibDsSnKGurz_MiWB_hvyGWAaBW68x"),
+  email:     DRIVE("1if5azi-8JTZew-nLTs8w55_nSKqBOS_S"),
+  site:      DRIVE("13z3BnlAiSLkulWfBqjxMQl6-4HEAy7QP"),
+  instagram: DRIVE(""),             // pendente: ícone oficial do Instagram
+  linkedin:  DRIVE("")              // pendente: ícone oficial do LinkedIn
+};
+// Cópias locais das imagens, só para a prévia desta página (a assinatura copiada usa as URLs do Drive)
+const PREVIEW_IMG = {
+  "https://lh3.googleusercontent.com/d/1ANev_aTtiIA_zz7K4qxu7BTAEgGttgzX": "data:image/png;base64,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",
+  "https://lh3.googleusercontent.com/d/1NG5tUPuRHPSV9dZH-BbHaxhQEukc0ToR": "data:image/png;base64,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",
+  "https://lh3.googleusercontent.com/d/1blKibDsSnKGurz_MiWB_hvyGWAaBW68x": "data:image/png;base64,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",
+  "https://lh3.googleusercontent.com/d/1if5azi-8JTZew-nLTs8w55_nSKqBOS_S": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXpvDEAAAATFiyxkTDqvTHpujHqvDHqvDKAay/qvDIrKCzpvTHMpjGliDDcsjF8Zy86NC3qvDFtXC7rwjRQRi6Qdy/btiREPC3BnTDfv0D/qisAAAAAAAAAAAAAAAAAAABtccXdAAAAIHRSTlP+AP//yhKwSf90/5f//////z3/Fv//B///CAYAAAAAAJ16AUkAAAGySURBVHjarZfnFoMgDIVTyhBRrKPz/R+0WLW1TVBG7z85fGYgMYEDKaG05BycOJdaCXoXEGu9fmFrcS2CYCWBlFS7sOLgFVebcC9hU1L4YQW7Uh74biBA5kLBQkKQVq6/YcEhUFz8wuHsip7hu4QIycsXbCBKZg0riJT6wAKi1b9hGQ/LBVaQIDXDPAXmE5xkGKB9wTINliNMpLo6IlV4l3Cw/l28nRihE8K1g3/TZUtGqsQpA+R1zdgZu90wViO/AeW6Y8ziAC1jHTpqQCEPzkNkpHaxDChoQAfVjAEOX+mphnGtQXcL0OdVOMtua/FZObPXUoEyhqNzsO3GsznOZq/uobPBMMBxPOtuiaJ07yFg8MAzVI+JmoKNgid3na5T7uJglyhntjzPD7Ew2Lp+fy9kwvgGvBYJy3TY4M8zHNb4YoTDirySDb6SBXklce30FQOLiwEuQxVdhm5UGcoqgFmlN6/oZ/1u0ky3//jFHvp4WPynrchraA6XuFbq8d3E9RlNXF77mNe4urjDWubH/5v1ANe3xoS9AaXdHY1a32jUBg1lIn0oW8ZBs4yDxjsOPgGaYg8Wm4DjqQAAAABJRU5ErkJggg==",
+  "https://lh3.googleusercontent.com/d/13z3BnlAiSLkulWfBqjxMQl6-4HEAy7QP": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXpvDEAAAATFizqvTG0kzDKpDEpJyzpujHqvDFmVi7qvDKQeC9WSi3qvDLpvTGhhDDasTFEPC13ZC7qvDGcgTDrwjTbtiSBbC80MC1eUC7fv0D/qisAAAAAAAAAAAAAAAD8PpNTAAAAIHRSTlP+AP/K////ErD/Sf//dJf/////Pf8WB////wgGAAAAAD8SDmoAAAG2SURBVHjatZfZloMgDIZjQDa3Wms7077/ew5SdXQMCtL5LziHlo+EyJJARkqaSjEGVoypykh6FBC/9ZXDlmKVDIKNAlLKHMKGgVfM7MK9gl0p6YcNHMp44GcNAarvFCwVBGnh+gxLBoFi8i8czi7oEX4qiJC6r+AaolQvYQORMr+whGj1M6ziYTXBBk7IjDA7A7M37DXMG60b7vu3czC94lwLdBI6960a6FBfNC6kL9QYaeGKMjtYLZ1pUQ4NZbyyMKPZMr8i3grEa17SNMuA8Ppi2QJyOwGABXOwUwjCcwlErPXAgjVsI80RHzDQmvjUsF3y2yQIbIdei18wOrBZNCjKcO6mKIZeMfW2pmvYxkvg9wzNk5QothEj9hVi4+yPo228bdu4CBzCdtiNc96i4E4CS9sW7ymPtNpbq33233CS23TAbmTAkj5V0iZJ2p7eg/EIOBgHR7LdPZJJl0HaNZR0ASZdvWmXftJzc+6h6z7xxGZ9PCw/k1akJTTZPS6Veq2TuD4hiUtLH9MSV7vusJT59flkPcD1vTLhqEDpDkujzlcadUFFmTxflE3lYD2Vg7W3HPwBJW0SdHtL+8sAAAAASUVORK5CYII=",
+};
+const DOMINIO = "@imendes.com.br";
+const EXEMPLO = {nome:"Ana Souza", cargo:"Analista de Marketing", email:"ana.souza@imendes.com.br", telefone:"1133334444", whatsapp:"11999998888"};
+const KEY = "imendes-assinatura-v1";
+/* ============================================================ */
+
+const C = {navy:"#13162c", amber:"#c69f3b", yellow:"#eabd32", slate:"#4b5563"};
+const ids = ["nome","cargo","email","telefone","whatsapp"];
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function digitsBR(v){
+  let d = String(v||"").replace(/\D/g,"");
+  if (d.startsWith("55") && d.length >= 12) d = d.slice(2);
+  if (d.startsWith("0")) d = d.replace(/^0+/,"");
+  return d;
+}
+function fmtBR(v){
+  const d = digitsBR(v);
+  if (d.length === 11) return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+  if (d.length === 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+  return String(v||"").trim();
+}
+
+function read(){ const o={}; ids.forEach(k=>o[k]=$(k).value.trim()); return o; }
+
+function buildSignature(d){
+  const nome = esc(d.nome || "Seu nome");
+  const cargo = esc(d.cargo || "Seu cargo");
+  const email = esc(d.email || "seu.nome" + DOMINIO);
+  const td = 'style="padding:0;font-family:Arial,Helvetica,sans-serif;"';
+  const lnk = `color:${C.navy};text-decoration:none;`;
+  const ico = (key, alt, size=18) => ICONES[key]
+    ? `<img src="${esc(ICONES[key])}" width="${size}" height="${size}" alt="${alt}" style="display:block;border:0;width:${size}px;height:${size}px;">`
+    : "";
+  const fb = {telefone:"T", whatsapp:"W", email:"E"};
+  const row = (key, alt, inner) => `<tr>
+<td width="18" valign="middle" style="padding:2px 8px 2px 0;width:18px;">${ico(key, alt) || `<span style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:${C.amber};">${fb[key]}</span>`}</td>
+<td valign="middle" style="padding:2px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:${C.navy};">${inner}</td>
+</tr>`;
+  const lines = [];
+  if (d.telefone){ const t = digitsBR(d.telefone); lines.push(row("telefone","Telefone",`<a href="tel:+55${t}" style="${lnk}">${esc(fmtBR(d.telefone))}</a>`)); }
+  if (d.whatsapp){ const w = digitsBR(d.whatsapp); lines.push(row("whatsapp","WhatsApp",`<a href="https://wa.me/55${w}" style="${lnk}">${esc(fmtBR(d.whatsapp))}</a>`)); }
+  lines.push(row("email","E-mail",`<a href="mailto:${email}" style="${lnk}">${email}</a>`));
+
+  const logo = EMPRESA.logoUrl
+    ? `<a href="${esc(EMPRESA.site)}" style="text-decoration:none;"><img src="${esc(EMPRESA.logoUrl)}" width="${EMPRESA.logoLargura}" height="${Math.round(EMPRESA.logoLargura*95/300)}" alt="IMendes" style="display:block;border:0;width:${EMPRESA.logoLargura}px;height:${Math.round(EMPRESA.logoLargura*95/300)}px;"></a>`
+    : `<a href="${esc(EMPRESA.site)}" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:bold;color:${C.navy};letter-spacing:-0.5px;">IMendes<span style="color:${C.yellow};">.</span></a>`;
+
+  // Rede/site: ícone + nome, cada item numa célula para alinhar no Gmail e no Outlook
+  const socialItem = (key, url, label, bold) => !url ? "" :
+    `${ICONES[key] ? `<td valign="middle" style="padding:0 6px 0 0;"><a href="${esc(url)}" style="text-decoration:none;">${ico(key, label, 18)}</a></td>` : ""}<td valign="middle" style="padding:0 14px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;"><a href="${esc(url)}" style="${lnk}${bold ? "font-weight:bold;" : ""}">${esc(label)}</a></td>`;
+  const social = `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;"><tr>${
+    socialItem("site", EMPRESA.site, EMPRESA.siteTexto, true) +
+    socialItem("instagram", EMPRESA.instagram, "Instagram") +
+    socialItem("linkedin", EMPRESA.linkedin, "LinkedIn")
+  }</tr></table>`;
+
+  return `<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:${C.navy};">
+<tr>
+<td valign="middle" style="padding:0 18px 0 0;border-right:2px solid ${C.yellow};">${logo}</td>
+<td valign="middle" style="padding:0 0 0 18px;font-family:Arial,Helvetica,sans-serif;">
+<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+<tr><td ${td}><span style="font-size:16px;font-weight:bold;color:${C.navy};">${nome}</span></td></tr>
+<tr><td style="padding:2px 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:${C.slate};">${cargo}</td></tr>
+<tr><td style="padding:0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+${lines.join("\n")}
+</table></td></tr>
+<tr><td style="padding:10px 0 0 0;">${social}</td></tr>
+</table>
+</td>
+</tr>
+</table>`;
+}
+
+function plainText(d){
+  return [d.nome, d.cargo, d.telefone && "T " + fmtBR(d.telefone), d.whatsapp && "W " + fmtBR(d.whatsapp), "E " + d.email, EMPRESA.siteTexto].filter(Boolean).join("\n");
+}
+
+function validate(d){
+  const missing = ["nome","cargo","email"].filter(k=>!d[k]);
+  ["nome","cargo","email"].forEach(k=>$(k).setAttribute("aria-invalid", missing.includes(k) && $(k).dataset.touched ? "true":"false"));
+  let emailWarn = "";
+  if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) emailWarn = "Esse e-mail parece incompleto.";
+  else if (d.email && !d.email.toLowerCase().endsWith(DOMINIO)) emailWarn = `Use seu e-mail corporativo (${DOMINIO}).`;
+  $("emailMsg").textContent = emailWarn;
+  return {ok: !missing.length && !/incompleto/.test(emailWarn), missing};
+}
+
+let lastHTML = "";
+function usePreviewImages(local){
+  $("sig").querySelectorAll("img").forEach(img => {
+    if (!img.dataset.src) img.dataset.src = img.getAttribute("src");
+    const hosted = img.dataset.src;
+    img.setAttribute("src", local && PREVIEW_IMG[hosted] ? PREVIEW_IMG[hosted] : hosted);
+  });
+}
+function render(){
+  const d = read();
+  lastHTML = buildSignature(d);
+  $("sig").innerHTML = lastHTML;
+  usePreviewImages(true);
+  const v = validate(d);
+  $("copyBtn").disabled = $("codeBtn").disabled = !v.ok;
+  $("status").textContent = v.ok ? "" : "Preencha nome, cargo e e-mail para copiar.";
+  $("status").className = v.ok ? "status" : "status warn";
+  $("codeBox").hidden = true;
+  try { localStorage.setItem(KEY, JSON.stringify(d)); } catch(e){}
+  $("exampleNote").hidden = !(d.nome === EXEMPLO.nome && d.email === EXEMPLO.email);
+}
+
+function say(msg, warn){ $("status").textContent = msg; $("status").className = warn ? "status warn" : "status"; }
+
+$("copyBtn").addEventListener("click", () => {
+  const d = read();
+  const fallback = () => {
+    usePreviewImages(false); // a seleção precisa levar as URLs do Drive, não as cópias locais
+    const r = document.createRange(); r.selectNodeContents($("sig"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    let done = false; try { done = document.execCommand("copy"); } catch(e){}
+    if (done){ s.removeAllRanges(); usePreviewImages(true); say("Assinatura copiada. Agora cole no Gmail."); }
+    else say("A assinatura está selecionada. Pressione Ctrl+C (ou Cmd+C) para copiar.", true);
+  };
+  try {
+    if (!navigator.clipboard || !window.ClipboardItem) return fallback();
+    navigator.clipboard.write([new ClipboardItem({
+      "text/html": new Blob([lastHTML], {type:"text/html"}),
+      "text/plain": new Blob([plainText(d)], {type:"text/plain"})
+    })]).then(() => say("Assinatura copiada. Agora cole no Gmail."), fallback);
+  } catch(e){ fallback(); }
+});
+
+$("codeBtn").addEventListener("click", () => {
+  const box = $("codeBox"); box.value = lastHTML; box.hidden = false;
+  const sel = () => { box.focus(); box.select(); say("Código selecionado. Pressione Ctrl+C para copiar.", true); };
+  try {
+    navigator.clipboard.writeText(lastHTML).then(() => say("Código HTML copiado."), sel);
+  } catch(e){ sel(); }
+});
+
+$("clearBtn").addEventListener("click", () => { ids.forEach(k=>$(k).value=""); render(); $("nome").focus(); });
+
+ids.forEach(k => {
+  $(k).addEventListener("input", render);
+  $(k).addEventListener("blur", () => { $(k).dataset.touched = "1"; if ((k==="telefone"||k==="whatsapp") && $(k).value) $(k).value = fmtBR($(k).value); render(); });
+});
+
+(function init(){
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch(e){}
+  const start = saved && saved.nome ? saved : EXEMPLO;
+  ids.forEach(k => $(k).value = (k==="telefone"||k==="whatsapp") && start[k] ? fmtBR(start[k]) : (start[k]||""));
+  render();
+})();
+</script>
+</body>
+</html>
